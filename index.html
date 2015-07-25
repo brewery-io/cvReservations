@@ -1,0 +1,208 @@
+
+<html>
+    <head>
+        <!-- SITE DESIGNED AND DEVELOPED BY BITCUBED SOLUTIONS http://bitcubed.net -->
+		<META http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="viewport" content="width=device-width" />
+
+        <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+
+        <style >
+            .objectId{
+                display:none;
+            }
+        </style>
+
+        <link rel="icon"
+          type="image/png"
+          href="img/favicon.png" />
+
+		<!-- Google Font API -->
+			<!-- Flat -->
+		<link href='http://fonts.googleapis.com/css?family=Hind|Open+Sans' rel='stylesheet' type='text/css' />
+
+		<!-- Media Queries -->
+		<link rel='stylesheet' href='css/style.css' type="text/css">
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+        <!-- Metatags -->
+        <meta name=”description” content=”155 characters here” />
+        <meta name="keywords" content="text" />
+
+        <title></title>
+    </head>
+
+    <body>
+
+        <!-- Page Wrap -->
+        <div class="pageWrap" id="pageWrap">
+
+            <!-- Navigation Bar -->
+            <div class="nav" id="nav">
+                <ul>
+                    <li id="pool" value="Pool"><img src="img/pool.png" /></li>
+                    <li id="soccer" value="Soccer"><img src="img/soccer.png" /></li>
+                    <li id="ping1" value="Ping Pong 1"><img src="img/pingpong1.png"></li>
+                    <li id="ping2" value="Ping Pong 2"><img src="img/pingpong2.png"></li>
+                    <li id="race" value="Racing"><img src="img/racing.png"></li>
+                    <li id="arcade" value="Arcade"><img src="img/arcade.png"></li>
+                    <li id="pinball" value="Pinball"><img src="img/pinball.png"></li>
+                    <li id="hockey" value="Air Hockey"><img src="img/airhockey.png"></li>
+                </ul>
+            </div>
+
+            <!-- Games List -->
+            <div class="games" id="games">
+                <h2 id="gameId" class="gameId">Pool</h2>
+                <div class="listTimesWrap">
+                    <table class="listTimes" id="listTimes">
+                        <tr class="ffa">
+                            <td>8:00 - 8:15</td>
+                            <td>Open to 4</td>
+                            <td><i class="fa fa-clock-o"></i> Free For All</td>
+                        </tr>
+                        <tr class="join">
+                            <p class="objectId" ></p>
+                            <td>8:15 - 8:30</td>
+                            <td>
+                                Looking for 1
+                                <p>Looking for 1 v 1 match!</p>
+                            </td>
+                            <td>Join Game <i class="fa fa-arrow-right"></i></td>
+                        </tr>
+                        <tr class="closed">
+                            <p class="objectId" ></p>
+                            <td>8:30 - 8:45</td>
+                            <td>Closed</td>
+                            <td><i class="fa fa-ban"></i></td>
+                        </tr>
+                        <tr class="reserve">
+                            <td>8:45 - 9:00</td>
+                            <td>Open to 4</td>
+                            <td><i class="fa fa-clock-o"></i> Reserve </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Panel for reserve/join -->
+            <div class="panel" id="panel">
+                <div class="panelWrap">
+                    <div id="reservePanel" class="fields">
+                        <h2 id="reserveTime" class="reserveTime">Reserve</h2>
+                        <form id="reserveForm">
+                            <p>1. How many spots are being reserved? (0 - 4)* </p>
+                            <input type="radio" name="number" value="1"/> One
+                            <input type="radio" name="number" value="2"/> Two
+                            <input type="radio" name="number" value="3"/> Three
+                            <input type="radio" name="number" value="4"/> Four <br /><br />
+                            <p>2. Allow other players to join?*</p>
+                            <input type="radio" name="needed" value="0"/> None
+                            <input type="radio" name="needed" value="1"/> Two
+                            <input type="radio" name="needed" value="2"/> Three
+                            <input type="radio" name="needed" value="3"/> Four <br /><br />
+                            <p>3. Description (optional)</p>
+                            <textarea id="description"></textarea><br /><br />
+                            <p>4. Email (for push notifications)*</p>
+                            <input type="email" name="email" /><br /><br />
+                            <input type="submit" value="Reserve" />
+                            <input id="reserveHidden" type="hidden" value="" />
+                        </form>
+                    </div>
+
+                    <div id="joinPanel" class="fields">
+                        <h2 id="joinTime" class="joinTime">Join</h2>
+                        <form>
+                            <p>1. How many spots are being reserved? (0 - 4)* </p>
+                            <input type="radio" name="number" value="1"/> One
+                            <input type="radio" name="number" value="2"/> Two
+                            <input type="radio" name="number" value="3"/> Three <br /><br />
+                            <p>3. Send a message (optional)</p>
+                            <textarea></textarea><br /><br />
+                            <p>4. Email (for push notifications)*</p>
+                            <input type="email" name="email" /><br /><br />
+                            <input type="submit" value="Join" />
+                            <input id="joinHidden" type="hidden" value="" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- SCRIPTS INCLUDED AT BOTTOM -->
+        <!-- jQuery library (served from Google) -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <!-- Javascript -->
+        <script src="js/wow.min.js"></script>
+        <script src="js/main.js"></script>
+
+        <script >
+
+            Parse.initialize("6BS6xIGHDqZY9I7DnT3rbnk39NRNe7WInFnxntBa", "XajKXAcvte8PziVdLK0hu8dBP2Q2Z9k3sewhMxEM");
+
+            $('#reserveForm').submit(function(e) {
+
+                e.preventDefault();
+
+                var timestamp = Date.now();
+            	var description = $('#description').val();
+            	var players = parseInt($('#reserveForm input[name="number"]').val());
+            	var needed = parseInt($('#reserveForm input[name="needed"]').val());
+
+            	$.ajax({
+            		type: "get",
+            		url: "http://localhost:3000/make_reservation",
+            		data: {
+            			"game": "pool",
+            			"startTime": 1437715804000,
+            			"email": "stapinskirafal@gmail.com",
+            			"players": players,
+            			"needed": needed,
+            			"gameDescription": description
+            		},
+            		success: function() {
+                        alert("Check your email for confirmation! ");
+                    }
+            	});
+            });
+
+            $('.ffa').click(function() {
+                Parse.Push.send({
+                    channels: [ "global" ],
+                    data: {
+                        alert: "Is someone playing pool?"
+                    }
+                }, {
+
+                    success: function() {
+                        setTimeout(function() {
+                            var query = new Parse.Query("InHere");
+                            query.equalTo("gameName", "pool");
+                            query.count({
+                                success: function(count) {
+                                    if (count == 1) {
+                                        alert("There is someone in this room. ");
+                                    } else {
+                                        alert("There is noone in this room. ");
+                                    }
+                                }
+                            });
+                        }, 6000);
+                    }
+
+                });
+            });
+
+        </script>
+
+    </body>
+
+
+
+
+
+</html>
